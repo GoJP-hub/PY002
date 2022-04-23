@@ -1,0 +1,73 @@
+https://www.toptal.com/developers/gitignore
+visual studio code, python, flask
+
+//Install Python
+https:// www. python. org/ downloads/
+python --version
+
+// Setup Visual Studio Code
+- Install Visual Studio Code
+- Open the project folder
+- Install Python for vscode
+- Install the code formatter
+pip install flake8 black isort mypy
+- Setup the code formatter
+file/setting > Workspace tab
+search: python > Linting (check)
+search: python > Linting: Pylint (uncheck)
+search: python > Linting Flake8 (check)
+search: python > Linting Flake args (--max-line-length=88)
+Python > Linting: Mypy Enabled (check)
+search: python > Formatting: provider (black.. pulldown)
+search: editor: format on save (check)
+search: editor: code on actions on save (edit in setting.json > 
+    "editor. codeActionsOnSave": { "source. organizeImports": true }
+    )
+
+// setup virtual environment (required as python setup different from OS default to be used)
+PowerShell Set-ExecutionPolicy RemoteSigned CurrentUser
+py -m venv venv
+
+// Activate Virtual Env and Deactivate
+venv\Scripts\Activate.ps1
+deactivate
+
+// Install Flask
+Create project folder
+Setup virtual environment
+Activate virtual environment
+pip install Flask
+
+// Basic command of Flask
+- Run the server
+flask run <-h XXX -p XXX>; <--help>
+- Find the route
+flask routes
+- Run the python interactive shells
+flask shell 
+
+// Setup Project folder
+- Go to project folder
+- Activate virtual environment
+- Install package for .env
+pip install python-dotenv
+- Create .env file at project folder and write following
+FLASK_APP=apps.[folder].app.py 
+FLASK_ENV=development
+
+- Make app folder
+mkdir -p apps/XXX
+- Create app.py at app folder
+    # Flask クラス を import する
+    from flask import Flask
+
+    # Flask クラス を インスタンス 化 する
+    app = Flask(__name__)
+    # URL と 実行 する 関数 を マッピング する
+    @app.route("/")
+    def index():
+        return "Hello, Flaskbook!"
+
+- Run the app
+flask run
+http://127.0.0.1:5000/
