@@ -1,0 +1,48 @@
+// Activate Virtual Env and Deactivate
+venv\Scripts\Activate.ps1
+deactivate
+
+// Run the app
+flask run
+http://127.0.0.1:5000/
+
+// Render template(HTML)
+from flask import Flask, render_template
+@app.route("/name/<name>")
+def showname(name):
+    return render_template("index.html", name=name)
+
+// Jinja package usage
+It is one of the package that comes as default when installing Flask
+It gives a unique way to interact with HTML (similarly to how javascript interacts)
+- setting the property
+<h1>Name: {{ name }} </h1>
+- using if condition
+{% if name=="Misc" %}
+<h2> This user is admin</h2>
+{% else %}
+<h2> Hello new user</h2>
+{% endif %}
+
+// url_for package usage
+It is the feature used to 
+(1) refer to endpoint by name at server-side, 
+    type the following command on the end of the page
+with app.test_request_context():
+    print(url_for("endpointName"))
+
+(2) refer to function to redirect at server-side, 
+    import redirect
+    specify the function in first parameter, set the variable in latter parameter
+from flask import Flask, render_template, url_for, redirect
+@app.get("/redirectfrom")
+def redirectfrom():
+    return redirect(url_for("redirectto", msg="redirect complete"))
+
+
+@app.get("/redirectto/<string:msg>")
+def redirectto(msg):
+    return msg
+
+(3) refer to static files at client-side
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
