@@ -9,3 +9,13 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return "Hello, Flaskbook!"
+
+
+@app.get("/hello")
+def hello():
+    return "Hello World!"
+
+
+@app.get("/helloppl/<name>")
+def helloppl(name):
+    return f"Hello, {name}!"

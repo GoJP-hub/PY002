@@ -1,0 +1,22 @@
+// Activate Virtual Env and Deactivate
+venv\Scripts\Activate.ps1
+deactivate
+
+// Run the app
+flask run
+http://127.0.0.1:5000/
+
+// Add route
+@app.route("/hello")
+@app.route("/hello", method=["GET/POST", <"XX">], endpoint=["XXXX])
+@app.get("/hello")
+@app.post("/hello")
+def hello():
+    return "Hello World!";
+
+// Add route with rule
+@app.get("/setname/<name>")
+def setname(name):
+    return f"Hello, {name}!"
+
+// method for the route cannot be duplicated
